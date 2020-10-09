@@ -1,5 +1,5 @@
 {
-    "name": "laravel-enso/multitenancy",
+    "name": "genealogiawebsite/multitenancy",
     "description": "User actions logger dependency for Laravel Enso",
     "keywords": [
         "laravel",
