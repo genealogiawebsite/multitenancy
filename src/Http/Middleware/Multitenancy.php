@@ -11,7 +11,7 @@ class Multitenancy
 {
     public function handle($request, Closure $next)
     {
-        if (! $request->user() || App::runningUnitTests()) {
+        if (! $request->user() || if (App::environment() === 'testing') ) {
             return $next($request);
         }
 
