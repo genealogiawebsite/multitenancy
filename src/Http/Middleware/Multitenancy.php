@@ -10,12 +10,8 @@ use LaravelEnso\Multitenancy\Services\Tenant;
 class Multitenancy
 {
     public function handle($request, Closure $next)
-    {
-        if (env('APP_ENV') === 'testing') {
-            return $next($request);
-        }
-        
-        if (! $request->user()) {
+    {   
+        if (! $request->user() || env('APP_ENV') === 'testing') {
             return $next($request);
         }
 
