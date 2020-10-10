@@ -11,7 +11,11 @@ class Multitenancy
 {
     public function handle($request, Closure $next)
     {
-        if (! $request->user() || config('app.env') === 'testing' ) {
+        if (config('app.env') === 'testing') {
+            return $next($request);
+        }
+        
+        if (! $request->user()) {
             return $next($request);
         }
 
